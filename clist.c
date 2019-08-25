@@ -15,8 +15,8 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize)
 {
 	list->head = 0;
 	list->tail = 0;
-	list->size = 0;
 	list->qtd  = 0;
+	list->size = sz;
 	list->dataSize = dataSize;
 	list->buffer = buf;
 
@@ -27,7 +27,6 @@ int clist_clear(clist_t *list)
 {
 	list->head = 0;
 	list->tail = 0;
-	list->size = 0;
 	list->qtd  = 0;
 
 	return(CLIST_OK);
