@@ -12,10 +12,11 @@ typedef struct _clist_t{
 	unsigned int size;
 	unsigned int head;
 	unsigned int tail;
+	size_t dataSize;
 	void *buffer;
 }clist_t;
 
-int clist_create(clist_t *list, void *buf, unsigned int sz);
+int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
 int clist_put(clist_t *list, void *node);
 void * clist_get(clist_t *list);
 void * clist_peek(clist_t *list);

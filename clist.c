@@ -7,15 +7,16 @@
  * MIT License
  *
  */
-
+#include <string.h>
 #include "clist.h"
 
-int clist_create(clist_t *list, void *buf, unsigned int sz)
+int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize)
 {
 	list->head = 0;
 	list->tail = 0;
 	list->size = 0;
 	list->qtd  = 0;
+	list->dataSize = dataSize;
 	list->buffer = buf;
 
 	return(CLIST_OK);
@@ -26,7 +27,7 @@ int clist_put(clist_t *list, void *node)
 	if(clist_isfull(list) == CLIST_FULL)
 		return(CLIST_ERRO); /* buffer full */
 
-	list->buffer[list->head] = node;
+	*(list->buffer + (list->head * list->dataSize)) = *node;
 
 	list->head = (list->head + 1) % list->size;
 
@@ -35,7 +36,7 @@ int clist_put(clist_t *list, void *node)
 
 void * clist_get(clist_t *list)
 {
-	void *ret = NULL;
+	void *ret = (void *)0;
 
 	if(clist_isfull(list) == CLIST_EMPTY)
 		return(ret); /* buffer empty */
