@@ -48,7 +48,10 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
  *  CLIST_OK
  *  CLIST_FULL
  */
+/*
 int clist_put(clist_t *list, void *node);
+*/
+int clist_put(clist_t *list, void *node, void (*copyNode)(void *dst, void *src));
 
 /* int clist_get(clist_t *list, void **node)
  *

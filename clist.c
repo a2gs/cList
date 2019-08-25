@@ -31,12 +31,15 @@ int clist_clear(clist_t *list)
 	return(CLIST_OK);
 }
 
-int clist_put(clist_t *list, void *node)
+int clist_put(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
 {
 	if(clist_isfull(list) == CLIST_FULL)
 		return(CLIST_FULL); /* buffer full */
 
+	/*
 	memcpy(list->buffer + list->head * list->dataSize, (const void *)node, list->dataSize);
+	*/
+	copyNode(list->buffer + list->head * list->dataSize, node);
 
 	list->head = (list->head + 1) % list->size;
 	list->qtd++;
