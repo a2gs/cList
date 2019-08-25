@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	clist_t cListCtrl;
 	float buffer[CIRCULAR_LIST_SIZE];
 
-	if(clist_create(&cListCtrl, buffer, CIRCULAR_LIST_SIZE) == CLIST_ERRO){
+	if(clist_create(&cListCtrl, buffer, CIRCULAR_LIST_SIZE, sizeof(float)) == CLIST_ERRO){
 	}
 
 
