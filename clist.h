@@ -60,6 +60,7 @@ int clist_put(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
  * Input:
  *  list - context
  *  *node - Pointer to node
+ *  copyNode - function to copy node (user knows how to copy your data: '=' or memcpy())
  * Output:
  *  CLIST_OK
  *  CLIST_EMPTY

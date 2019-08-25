@@ -43,6 +43,13 @@ int main(int argc, char *argv[])
 		node += i;
 	}
 
+	for(i = 0; i < 60; i++){
+		if(clist_get(&cListCtrl, &node, copyNode) != CLIST_OK){
+			printf("Error clist_get() %d\n", i);
+			return(3);
+		}
+		printf("GET: %f (i=%d)\n", node, i);
+	}
 
 	for(i = 0; i < 60; i++){
 		if(clist_get(&cListCtrl, &node, copyNode) != CLIST_OK){
@@ -50,7 +57,7 @@ int main(int argc, char *argv[])
 			return(3);
 		}
 		printf("GET: %f (i=%d)\n", node, i);
-
 	}
+
 	return(0);
 }
