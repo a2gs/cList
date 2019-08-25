@@ -64,7 +64,7 @@ int clist_put(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
  *  CLIST_OK
  *  CLIST_EMPTY
  */
-int clist_get(clist_t *list, void **node);
+int clist_get(clist_t *list, void *node, void (*copyNode)(void *dst, void *src));
 
 /* int clist_peek(clist_t *list)
  *

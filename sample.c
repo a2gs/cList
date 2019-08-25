@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 
 
 	for(i = 0; i < 30; i++){
-		if(clist_get(&cListCtrl, (void **)&node) != CLIST_OK){
+		if(clist_get(&cListCtrl, &node, copyNode) != CLIST_OK){
 			printf("Error clist_get() %d\n", i);
 			return(2);
 		}

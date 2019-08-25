@@ -47,12 +47,15 @@ int clist_put(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
 	return(CLIST_OK);
 }
 
-int clist_get(clist_t *list, void **node)
+int clist_get(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
 {
 	if(clist_isfull(list) == CLIST_EMPTY)
 		return(CLIST_EMPTY); /* buffer empty */
 
+	/*
 	*node = list->buffer + list->tail * list->dataSize;
+	*/
+	copyNode(node, list->buffer + list->tail * list->dataSize);
 
 	list->tail = (list->tail + 1) % list->size;
 	list->qtd--;
