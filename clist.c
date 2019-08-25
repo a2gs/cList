@@ -40,6 +40,7 @@ int clist_put(clist_t *list, void *node)
 	memcpy(list->buffer + list->head * list->dataSize, (const void *)node, list->dataSize);
 
 	list->head = (list->head + 1) % list->size;
+	list->qtd++;
 
 	return(CLIST_OK);
 }
@@ -54,6 +55,7 @@ void * clist_get(clist_t *list)
 	ret = list->buffer + list->tail * list->dataSize;
 
 	list->tail = (list->tail + 1) % list->size;
+	list->qtd--;
 
 	return(ret);
 }
