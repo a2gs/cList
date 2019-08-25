@@ -58,14 +58,19 @@ int clist_get(clist_t *list, void **node)
 	return(CLIST_OK);
 }
 
-void * clist_peek(clist_t *list)
+int clist_peek(clist_t *list, void **node)
 {
-	return(list->buffer + (list->tail * list->dataSize));
+	if(clist_isfull(list) == CLIST_EMPTY)
+		return(CLIST_EMPTY); /* buffer empty */
+
+	*node = list->buffer + list->tail * list->dataSize;
+
+	return(CLIST_OK);
 }
 
 unsigned int clist_size(clist_t *list)
 {
-	return(list->size);
+	return(CLIST_OK);
 }
 
 unsigned int clist_qtd(clist_t *list)

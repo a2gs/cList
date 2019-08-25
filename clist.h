@@ -41,26 +41,29 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
  */
 int clist_put(clist_t *list, void *node);
 
-/* void * clist_get(clist_t *list, void **node);
+/* int clist_get(clist_t *list, void **node);
  *
  * Return (and remove) a node (tail) from list.
  * Input:
  *  list - context
+ *  *node - Pointer to node
  * Output:
  *  CLIST_OK
  *  CLIST_EMPTY
  */
 int clist_get(clist_t *list, void **node);
 
-/* void * clist_peek(clist_t *list);
+/* int clist_peek(clist_t *list);
  *
- * 
+ * Return(and not remove) a node (tail) from list.
  * Input:
  *  list - context
+ *  *node - Pointer to node
  * Output:
- *
+ *  CLIST_OK
+ *  CLIST_EMPTY
  */
-void * clist_peek(clist_t *list);
+int clist_peek(clist_t *list, void **node);
 
 /* unsigned int clist_size(clist_t *list);
  *
