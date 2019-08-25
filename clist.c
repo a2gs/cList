@@ -23,6 +23,16 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize)
 	return(CLIST_OK);
 }
 
+int clist_clear(clist_t *list)
+{
+	list->head = 0;
+	list->tail = 0;
+	list->size = 0;
+	list->qtd  = 0;
+
+	return(CLIST_OK);
+}
+
 int clist_put(clist_t *list, void *node)
 {
 	if(clist_isfull(list) == CLIST_FULL)

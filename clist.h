@@ -16,12 +16,88 @@ typedef struct _clist_t{
 	void *buffer;
 }clist_t;
 
+/* int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
+ *
+ * Starts a circlar list context.
+ * Input:
+ *  list - context
+ *  buf - Buffer/array to store nodes
+ *  sz - Max circular list
+ *  dataSize - Size of one node (sizeof(buf[0]))
+ * Output:
+ *  CLIST_OK
+ */
 int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
+
+/* int clist_put(clist_t *list, void *node);
+ *
+ * Inserts one node.
+ * Input:
+ *  list - context
+ *  node
+ * Output:
+ *
+ */
 int clist_put(clist_t *list, void *node);
+
+/* void * clist_get(clist_t *list);
+ *
+ * 
+ * Input:
+ *  list - context
+ * Output:
+ *
+ */
 void * clist_get(clist_t *list);
+
+/* void * clist_peek(clist_t *list);
+ *
+ * 
+ * Input:
+ *  list - context
+ * Output:
+ *
+ */
 void * clist_peek(clist_t *list);
+
+/* unsigned int clist_size(clist_t *list);
+ *
+ * 
+ * Input:
+ *  list - context
+ * Output:
+ *
+ */
 unsigned int clist_size(clist_t *list);
+
+/* unsigned int clist_qtd(clist_t *list);
+ *
+ * 
+ * Input:
+ *  list - context
+ * Output:
+ *
+ */
 unsigned int clist_qtd(clist_t *list);
+
+/* int clist_isfull(clist_t *list);
+ *
+ * 
+ * Input:
+ *  list - context
+ * Output:
+ *
+ */
 int clist_isfull(clist_t *list);
+
+/* int clist_clear(clist_t *list);
+ *
+ * 
+ * Input:
+ *  list - context
+ * Output:
+ *
+ */
+int clist_clear(clist_t *list);
 
 #endif
