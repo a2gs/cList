@@ -7,6 +7,7 @@
  * MIT License
  *
  */
+
 #include <string.h>
 #include "clist.h"
 
@@ -27,7 +28,7 @@ int clist_put(clist_t *list, void *node)
 	if(clist_isfull(list) == CLIST_FULL)
 		return(CLIST_ERRO); /* buffer full */
 
-	memset(list->buffer + list->head * list->dataSize, (const void *)node, list->dataSize);
+	memcpy(list->buffer + list->head * list->dataSize, (const void *)node, list->dataSize);
 
 	list->head = (list->head + 1) % list->size;
 
