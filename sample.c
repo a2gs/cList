@@ -23,7 +23,7 @@ void copyNode(void *a, void *b)
 int main(int argc, char *argv[])
 {
 	clist_t cListCtrl;
-	float buffer[CIRCULAR_LIST_SIZE];
+	float buffer[CIRCULAR_LIST_SIZE] = {0.0};
 	float node;
 	int i;
 
@@ -44,10 +44,10 @@ int main(int argc, char *argv[])
 	}
 
 
-	for(i = 0; i < 30; i++){
+	for(i = 0; i < 60; i++){
 		if(clist_get(&cListCtrl, &node, copyNode) != CLIST_OK){
 			printf("Error clist_get() %d\n", i);
-			return(2);
+			return(3);
 		}
 		printf("GET: %f (i=%d)\n", node, i);
 

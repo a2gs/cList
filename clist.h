@@ -12,9 +12,9 @@
 
 #define CLIST_ERRO	(0)
 #define CLIST_OK     (1)
-#define CLIST_FULL	(0)
-#define CLIST_EMPTY  (1)
-#define CLIST_SOME   (2)
+#define CLIST_FULL	(2)
+#define CLIST_EMPTY  (3)
+#define CLIST_SOME   (4)
 
 typedef struct _clist_t{
 	unsigned int qtd;
