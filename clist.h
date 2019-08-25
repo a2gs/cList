@@ -1,3 +1,12 @@
+/* Andre Augusto Giannotti Scota (a2gs)
+ * andre.scota@gmail.com
+ *
+ * cList
+ * Circular list/buffer.
+ *
+ * MIT License
+ */
+
 #ifndef __CLIST_LIB_H__
 #define __CLIST_LIB_H__
 
@@ -16,7 +25,7 @@ typedef struct _clist_t{
 	void *buffer;
 }clist_t;
 
-/* int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
+/* int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize)
  *
  * Starts a circlar list context.
  * Input:
@@ -29,7 +38,7 @@ typedef struct _clist_t{
  */
 int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
 
-/* int clist_put(clist_t *list, void *node);
+/* int clist_put(clist_t *list, void *node)
  *
  * Inserts one node.
  * Input:
@@ -41,7 +50,7 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
  */
 int clist_put(clist_t *list, void *node);
 
-/* int clist_get(clist_t *list, void **node);
+/* int clist_get(clist_t *list, void **node)
  *
  * Return (and remove) a node (tail) from list.
  * Input:
@@ -53,7 +62,7 @@ int clist_put(clist_t *list, void *node);
  */
 int clist_get(clist_t *list, void **node);
 
-/* int clist_peek(clist_t *list);
+/* int clist_peek(clist_t *list)
  *
  * Return(and not remove) a node (tail) from list.
  * Input:
@@ -65,7 +74,7 @@ int clist_get(clist_t *list, void **node);
  */
 int clist_peek(clist_t *list, void **node);
 
-/* unsigned int clist_size(clist_t *list);
+/* unsigned int clist_size(clist_t *list)
  *
  * Return the max size from a list.
  * Input:
@@ -75,7 +84,7 @@ int clist_peek(clist_t *list, void **node);
  */
 unsigned int clist_size(clist_t *list);
 
-/* unsigned int clist_qtd(clist_t *list);
+/* unsigned int clist_qtd(clist_t *list)
  *
  * Return node quantity used from a list.
  * Input:
@@ -85,7 +94,7 @@ unsigned int clist_size(clist_t *list);
  */
 unsigned int clist_qtd(clist_t *list);
 
-/* int clist_isfull(clist_t *list);
+/* int clist_isfull(clist_t *list)
  *
  * Return list state: EMPTY, SOME NODES, FULL
  * Input:
@@ -97,7 +106,7 @@ unsigned int clist_qtd(clist_t *list);
  */
 int clist_isfull(clist_t *list);
 
-/* int clist_clear(clist_t *list);
+/* int clist_clear(clist_t *list)
  *
  * Empty a list.
  * Input:

@@ -5,7 +5,6 @@
  * Circular list/buffer.
  *
  * MIT License
- *
  */
 
 #include <string.h>
