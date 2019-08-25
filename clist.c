@@ -27,7 +27,7 @@ int clist_put(clist_t *list, void *node)
 	if(clist_isfull(list) == CLIST_FULL)
 		return(CLIST_ERRO); /* buffer full */
 
-	*(list->buffer + (list->head * list->dataSize)) = *node;
+	memset(list->buffer + list->head * list->dataSize, (const void *)node, list->dataSize);
 
 	list->head = (list->head + 1) % list->size;
 
@@ -41,7 +41,7 @@ void * clist_get(clist_t *list)
 	if(clist_isfull(list) == CLIST_EMPTY)
 		return(ret); /* buffer empty */
 
-	ret = list->buffer[list->tail];
+	ret = list->buffer + list->tail * list->dataSize;
 
 	list->tail = (list->tail + 1) % list->size;
 
@@ -50,7 +50,7 @@ void * clist_get(clist_t *list)
 
 void * clist_peek(clist_t *list)
 {
-	return(list->buffer[list->head]);
+	return(list->buffer + (list->tail * list->dataSize));
 }
 
 unsigned int clist_size(clist_t *list)
