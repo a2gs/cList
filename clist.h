@@ -67,9 +67,9 @@ int clist_put(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
  */
 int clist_get(clist_t *list, void *node, void (*copyNode)(void *dst, void *src));
 
-/* int clist_peek(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
+/* int clist_peekHead(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
  *
- * Return(and not remove) a node (tail) from list.
+ * Return(and not remove) a node (tail) from list head.
  * Input:
  *  list - context
  *  *node - Pointer to node
@@ -78,7 +78,20 @@ int clist_get(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
  *  CLIST_OK
  *  CLIST_EMPTY
  */
-int clist_peek(clist_t *list, void *node, void (*copyNode)(void *dst, void *src));
+int clist_peekHead(clist_t *list, void *node, void (*copyNode)(void *dst, void *src));
+
+/* int clist_peekTail(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
+ *
+ * Return(and not remove) a node (tail) from list tail.
+ * Input:
+ *  list - context
+ *  *node - Pointer to node
+ *  copyNode - function to copy node (user knows how to copy your data: '=' or memcpy())
+ * Output:
+ *  CLIST_OK
+ *  CLIST_EMPTY
+ */
+int clist_peekTail(clist_t *list, void *node, void (*copyNode)(void *dst, void *src));
 
 /* unsigned int clist_size(clist_t *list)
  *

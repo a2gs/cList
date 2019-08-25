@@ -40,14 +40,20 @@ int main(int argc, char *argv[])
 			return(2);
 		}
 		printf("PUT: [%f] (i=[%d])\n", node, i);
-		node += i;
+		node += i + 1;
 	}
 
 	printf("List is: [%d] (2=full, 3=empty, 4=some) | Qtd: [%u] | Size: [%u]\n", clist_isfull(&cListCtrl), clist_qtd(&cListCtrl), clist_size(&cListCtrl));
 
-	if(clist_peek(&cListCtrl, &node, copyNode) != CLIST_OK){
-		printf("Erro clist_peek()\n");
+	if(clist_peekTail(&cListCtrl, &node, copyNode) != CLIST_OK){
+		printf("Erro clist_peekTail()\n");
 		return(3);
+	}
+	printf("clist tail node: [%f]\n", node);
+
+	if(clist_peekHead(&cListCtrl, &node, copyNode) != CLIST_OK){
+		printf("Erro clist_peekHead()\n");
+		return(4);
 	}
 	printf("clist head node: [%f]\n", node);
 

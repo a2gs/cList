@@ -57,12 +57,22 @@ int clist_get(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
 	return(CLIST_OK);
 }
 
-int clist_peek(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
+int clist_peekHead(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
 {
 	if(clist_isfull(list) == CLIST_EMPTY)
 		return(CLIST_EMPTY); /* buffer empty */
 
 	copyNode(node, list->buffer + (list->head - 1) * list->dataSize);
+
+	return(CLIST_OK);
+}
+
+int clist_peekTail(clist_t *list, void *node, void (*copyNode)(void *dst, void *src))
+{
+	if(clist_isfull(list) == CLIST_EMPTY)
+		return(CLIST_EMPTY); /* buffer empty */
+
+	copyNode(node, list->buffer + (list->tail) * list->dataSize);
 
 	return(CLIST_OK);
 }
