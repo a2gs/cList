@@ -34,21 +34,23 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
  * Inserts one node.
  * Input:
  *  list - context
- *  node
+ *  node - node to insert (memcpy())
  * Output:
- *
+ *  CLIST_OK
+ *  CLIST_FULL
  */
 int clist_put(clist_t *list, void *node);
 
-/* void * clist_get(clist_t *list);
+/* void * clist_get(clist_t *list, void **node);
  *
- * 
+ * Return (and remove) a node (tail) from list.
  * Input:
  *  list - context
  * Output:
- *
+ *  CLIST_OK
+ *  CLIST_EMPTY
  */
-void * clist_get(clist_t *list);
+int clist_get(clist_t *list, void **node);
 
 /* void * clist_peek(clist_t *list);
  *
@@ -92,11 +94,11 @@ int clist_isfull(clist_t *list);
 
 /* int clist_clear(clist_t *list);
  *
- * 
+ * Empty a list.
  * Input:
  *  list - context
  * Output:
- *
+ *  CLIST_OK
  */
 int clist_clear(clist_t *list);
 

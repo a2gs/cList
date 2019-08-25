@@ -35,7 +35,7 @@ int clist_clear(clist_t *list)
 int clist_put(clist_t *list, void *node)
 {
 	if(clist_isfull(list) == CLIST_FULL)
-		return(CLIST_ERRO); /* buffer full */
+		return(CLIST_FULL); /* buffer full */
 
 	memcpy(list->buffer + list->head * list->dataSize, (const void *)node, list->dataSize);
 
@@ -45,19 +45,17 @@ int clist_put(clist_t *list, void *node)
 	return(CLIST_OK);
 }
 
-void * clist_get(clist_t *list)
+int clist_get(clist_t *list, void **node)
 {
-	void *ret = (void *)0;
-
 	if(clist_isfull(list) == CLIST_EMPTY)
-		return(ret); /* buffer empty */
+		return(CLIST_EMPTY); /* buffer empty */
 
-	ret = list->buffer + list->tail * list->dataSize;
+	*node = list->buffer + list->tail * list->dataSize;
 
 	list->tail = (list->tail + 1) % list->size;
 	list->qtd--;
 
-	return(ret);
+	return(CLIST_OK);
 }
 
 void * clist_peek(clist_t *list)
