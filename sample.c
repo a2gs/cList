@@ -1,3 +1,13 @@
+/* Andre Augusto Giannotti Scota (a2gs)
+ * andre.scota@gmail.com
+ *
+ * cList
+ * Circular list / buffer. Usage sample.
+ *
+ * MIT License
+ *
+ */
+
 #include <stdio.h>
 
 #include "clist.h"

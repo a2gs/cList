@@ -1,3 +1,13 @@
+/* Andre Augusto Giannotti Scota (a2gs)
+ * andre.scota@gmail.com
+ *
+ * cList
+ * Circular list/buffer.
+ *
+ * MIT License
+ *
+ */
+
 #include "clist.h"
 
 int clist_create(clist_t *list, void *buf, unsigned int sz)
