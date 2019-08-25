@@ -67,31 +67,33 @@ int clist_peek(clist_t *list, void **node);
 
 /* unsigned int clist_size(clist_t *list);
  *
- * 
+ * Return the max size from a list.
  * Input:
  *  list - context
  * Output:
- *
+ *  Max size
  */
 unsigned int clist_size(clist_t *list);
 
 /* unsigned int clist_qtd(clist_t *list);
  *
- * 
+ * Return node quantity used from a list.
  * Input:
  *  list - context
  * Output:
- *
+ *  Qtd nodes
  */
 unsigned int clist_qtd(clist_t *list);
 
 /* int clist_isfull(clist_t *list);
  *
- * 
+ * Return list state: EMPTY, SOME NODES, FULL
  * Input:
  *  list - context
  * Output:
- *
+ *  CLIST_FULL
+ *  CLIST_EMPTY
+ *  CLIST_SOME
  */
 int clist_isfull(clist_t *list);
 
