@@ -44,6 +44,7 @@ int clist_create(clist_t *list, void *buf, unsigned int sz, size_t dataSize);
  * Input:
  *  list - context
  *  node - node to insert (memcpy())
+ *  copyNode - function to copy node (user knows how to copy your data: '=' or memcpy())
  * Output:
  *  CLIST_OK
  *  CLIST_FULL
