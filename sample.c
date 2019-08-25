@@ -34,29 +34,23 @@ int main(int argc, char *argv[])
 
 	node = 13.8;
 
-	for(i = 0; i < 50; i++){
+	for(i = 0; i < 20; i++){
 		if(clist_put(&cListCtrl, &node, copyNode) != CLIST_OK){
-			printf("Error clist_put() %d\n", i);
+			printf("Error clist_put() [%d]\n", i);
 			return(2);
 		}
-		printf("PUT: %f (i=%d)\n", node, i);
+		printf("PUT: [%f] (i=[%d])\n", node, i);
 		node += i;
 	}
 
-	for(i = 0; i < 60; i++){
-		if(clist_get(&cListCtrl, &node, copyNode) != CLIST_OK){
-			printf("Error clist_get() %d\n", i);
-			return(3);
-		}
-		printf("GET: %f (i=%d)\n", node, i);
+	if(clist_peek(&cListCtrl, &node, copyNode) != CLIST_OK){
+		printf("Erro clist_peek()\n");
+		return(3);
 	}
+	printf("clist head node: [%f]\n", node);
 
-	for(i = 0; i < 60; i++){
-		if(clist_get(&cListCtrl, &node, copyNode) != CLIST_OK){
-			printf("Error clist_get() %d\n", i);
-			return(3);
-		}
-		printf("GET: %f (i=%d)\n", node, i);
+	for(i = 0; clist_get(&cListCtrl, &node, copyNode) != CLIST_EMPTY; i++){
+		printf("GET: [%f] (i=[%d])\n", node, i);
 	}
 
 	return(0);
