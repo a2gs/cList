@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
 		node += i;
 	}
 
+	printf("List is: [%d] (2=full, 3=empty, 4=some) | Qtd: [%u] | Size: [%u]\n", clist_isfull(&cListCtrl), clist_qtd(&cListCtrl), clist_size(&cListCtrl));
+
 	if(clist_peek(&cListCtrl, &node, copyNode) != CLIST_OK){
 		printf("Erro clist_peek()\n");
 		return(3);

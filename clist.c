@@ -69,7 +69,7 @@ int clist_peek(clist_t *list, void *node, void (*copyNode)(void *dst, void *src)
 
 unsigned int clist_size(clist_t *list)
 {
-	return(CLIST_OK);
+	return(list->size);
 }
 
 unsigned int clist_qtd(clist_t *list)
