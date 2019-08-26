@@ -10,9 +10,9 @@
 #ifndef __CLIST_LIB_H__
 #define __CLIST_LIB_H__
 
-#define CLIST_ERRO	(0)
+#define CLIST_ERRO   (0)
 #define CLIST_OK     (1)
-#define CLIST_FULL	(2)
+#define CLIST_FULL   (2)
 #define CLIST_EMPTY  (3)
 #define CLIST_SOME   (4)
 
