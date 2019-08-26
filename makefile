@@ -24,7 +24,7 @@ clistlib:
 	-$(RM) clist.o
 
 sample: clistlib
-	cc -o sample sample.c $(CFLAGS) -L./ -l$(LIB_CLIST)
+	$(CC) -o sample sample.c $(CFLAGS) -L./ -l$(LIB_CLIST)
 
 clean:
 	-$(RM) *.o core sample libclist.a clist.o
